@@ -3,7 +3,6 @@ import numpy as np
 import time
 
 #Constansts
-
 G,M,L,DT=10.0,1.0,1.0,0.05
 MAX_SPEED,MAX_TORQUE=8.0,2.0
 H,N,K,I,sig0=30,500,50,5,1.0
@@ -87,9 +86,6 @@ def cem(th,thdot,mu):
         idx=np.argsort(J)[-K:]
         elites=X[idx]
         mu,sig=np.mean(elites,axis=0),np.std(elites,axis=0)
-        #print(f"i:{i}")
-        #print(f"Sig mean:{sig.mean()}")
-        #print(f"J max:{J.max()}")
     return mu,sig
 
 def run_episode(env,seed):
@@ -125,10 +121,10 @@ if __name__ == "__main__":
     check_step(env)
     check_rollout(env)
 
-    for h in [5, 10, 20, 30, 50]:          # ← new outer loop
-        H = h                              # ← changes the global H
+    for h in [5, 10, 20, 30, 50]:          
+        H = h                             
         returns, times = [], []
-        for seed in range(5):              # ← your existing seed loop, now inside
+        for seed in range(5):             
             total, ms = run_episode(env, seed)
             returns.append(total)
             times.append(ms)
