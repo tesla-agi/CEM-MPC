@@ -1,5 +1,4 @@
-# CEM-MPC on Pendulum-v1 (from scratch, numpy only
-
+# CEM-MPC on Pendulum-v1 
 A minimal implementation of the **Cross-Entropy Method (CEM)** used as a **Model Predictive Control (MPC)** planner on Gymnasium's `Pendulum-v1`. Written from scratch in a single file with no ML libraries: just numpy, plus gymnasium for the real environment and verification.
 
 The planner uses the **exact pendulum dynamics** (hardcoded) as its model. This isolates the planner from model error: any failure is a planning failure, not a modelling one.
